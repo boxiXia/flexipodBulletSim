@@ -5,6 +5,7 @@ import time
 import pybullet_data
 import math
 import random
+import pandas as pd
 
 plt.style.use('seaborn-whitegrid')
 
@@ -167,90 +168,113 @@ class WalkingTrot():
 # angle4 = np.array([gaits[3].GetPos(t, w, s) for t, w, s in zip(t_arr, w_arr, s_arr)])
 
 
-physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
-p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
-p.setGravity(0,0,-10)
+physicsClient = p.connect(p.GUI)  # or p.DIRECT for non-graphical version
+p.setAdditionalSearchPath(pybullet_data.getDataPath())  # optionally
+p.setGravity(0, 0, -10)
 planeId = p.loadURDF("plane.urdf")
-p.changeDynamics(planeId, linkIndex = -1)
-cubeStartPos = [0,0,0.24]
-cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
-boxId = p.loadURDF("./URDF/10_degree.urdf",cubeStartPos, cubeStartOrientation)
-mode = p.POSITION_CONTROL
-maxforce = [5, 5, 5, 5]
+p.changeDynamics(planeId, -1, contactStiffness=1500, contactDamping=30)
+cubeStartPos = [0, 0, 0.24]
+cubeStartOrientation = p.getQuaternionFromEuler([0, 0, 0])
+leg_angle_arr = np.arange(0,31,5)
+result = []
+initial_steps = 480
+sim_steps = 14400
+for leg_angle in leg_angle_arr:
+    boxId = p.loadURDF(f"same_leg_urdf/{leg_angle}_degree.urdf", cubeStartPos, cubeStartOrientation)
+    # p.changeDynamics(boxId, 1, contactStiffness = 1000, contactDamping = 1000)
+    mode = p.POSITION_CONTROL
+    maxforce = [5, 5, 5, 5]
 
-w = 4 * PI
-s_front_temp = 0.86
-s_back_temp = 0.13
-t_offset_temp = 0.9500000000000001
+    w = 3 * PI
+    parameter = [0 for _ in range(7)]
+    parameter[0] = 0.5  # 0.51
+    parameter[1] = 0.8  # 0.74
+    parameter[2] = 17.5  # 7
+    parameter[3] = 162.5  # 113
+    parameter[4] = 0.8  # 0.67
+    parameter[5] = 17.5  # 95
+    parameter[6] = 162.5  # 134
+    front_stance_mid = ((parameter[2] + parameter[3]) / 2) / 180 * PI
+    front_contact_angle = (parameter[3] - parameter[2]) / 180 * PI
+    back_stance_mid = ((parameter[5] + parameter[6]) / 2) / 180 * PI
+    back_contact_angle = (parameter[6] - parameter[5]) / 180 * PI
 
-gaits = [  # bounding gait
-    WalkingTrot(0, p_stance_mid=1. / 2. * np.pi, contact_angle=160 / 180 * PI),
-    # front left
-    WalkingTrot(t_offset_temp, p_stance_mid=1. / 2. * np.pi, contact_angle=160 / 180 * PI),
-    # back left
-    WalkingTrot(t_offset_temp, p_stance_mid=1. / 2. * np.pi, contact_angle=160 / 180 * PI),
-    # back right
-    WalkingTrot(0, p_stance_mid=1. / 2. * np.pi, contact_angle=160 / 180 * PI)
-    # front right
-    ]
-# jointPosition = np.zeros(1440)
-# jointVelocity = np.zeros(1440)
-# appliedJointMotorTorque = np.zeros(1440)
+    gaits = [  # bounding gait
+        WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle),  # front left
+        WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back left
+        WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back right
+        WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
+    # gaits = [  # trotting gait #2 alternate gait
+    #     WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle),  # front left
+    #     WalkingTrot(0, p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back left
+    #     WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back right
+    #     WalkingTrot(parameter[0], p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
+    # jointPosition = np.zeros(1440)
+    # jointVelocity = np.zeros(1440)
+    # appliedJointMotorTorque = np.zeros(1440)
 
-# 1 left_front
-# 2 right_front
-# 3 right_back
-# 4 left_back
-T_pos = [0 for _ in range(4)]
-T_test = [0 for _ in range(4)]
-counter = [0 for _ in range(4)]
+    # 1 left_front
+    # 2 right_front
+    # 3 right_back
+    # 4 left_back
+    T_pos = [0 for _ in range(4)]
+    T_test = [0 for _ in range(4)]
+    counter = [0 for _ in range(4)]
+    pos_tmp = [[0 for i in range(2)] for j in range(6)]
+    num = 0
+    velocity = [0 for _ in range(5)]
+    cheating = False
 
-p.setJointMotorControlArray(boxId, [0, 1, 2, 3], controlMode=mode,
-                            targetPositions=[gaits[0].GetPos(0, w, s_front_temp),
-                                            -gaits[3].GetPos(0, w, s_front_temp),
-                                            -gaits[2].GetPos(0, w, s_back_temp),
-                                            gaits[1].GetPos(0, w, s_back_temp)])
-
-T_test[0] = gaits[0].GetPos(0, w, s_front_temp)
-T_test[1] = -gaits[3].GetPos(0, w, s_front_temp)
-T_test[2] = -gaits[2].GetPos(0, w, s_back_temp)
-T_test[3] = gaits[1].GetPos(0, w, s_back_temp)
-
-for i in range(120):
-    p.stepSimulation()
-    time.sleep(1. / 240.)
-PosStart, OrnStart = p.getBasePositionAndOrientation(boxId)
-# EulerStart = p.getEulerFromQuaternion(OrnStart)
-
-for i in range(2400):
-    p.stepSimulation()
-
-    T_pos[0] = gaits[0].GetPos(i / 240, w, s_front_temp)
-    T_pos[1] = gaits[3].GetPos(i / 240, w, s_front_temp)
-    T_pos[2] = gaits[2].GetPos(i / 240, w, s_back_temp)
-    T_pos[3] = gaits[1].GetPos(i / 240, w, s_back_temp)
-    for a in range(4):
-        if T_pos[a] < (T_test[a] - 3):
-            counter[a] += 1
-        T_test[a] = T_pos[a]
-
-    T_pos[0] = gaits[0].GetPos(i / 240, w, s_front_temp) + TWO_PI * counter[0]
-    T_pos[1] = -gaits[3].GetPos(i / 240, w, s_front_temp) - TWO_PI * counter[1]
-    T_pos[2] = -gaits[2].GetPos(i / 240, w, s_back_temp) - TWO_PI * counter[2]
-    T_pos[3] = gaits[1].GetPos(i / 240, w, s_back_temp) + TWO_PI * counter[3]
+    T_test[0] = gaits[0].GetPos(0, w, parameter[1])
+    T_test[1] = -gaits[3].GetPos(0, w, parameter[1])
+    T_test[2] = -gaits[2].GetPos(0, w, parameter[4])
+    T_test[3] = gaits[1].GetPos(0, w, parameter[4])
 
     p.setJointMotorControlArray(boxId, [0, 1, 2, 3], controlMode=mode,
-                                targetPositions=[T_pos[0], T_pos[1], T_pos[2], T_pos[3]],
-                                forces=maxforce)
+                                targetPositions=[T_test[0], T_test[1], T_test[2], T_test[3]])
+    # p.setJointMotorControlArray(boxId, [0, 1, 2, 3], controlMode=mode,
+    #                             targetPositions=[PI / 4, PI / 4 , PI / 4, PI / 4])
 
-    #jointPosition[i], jointVelocity[i], jointReactionForces, appliedJointMotorTorque[i] = p.getJointState(boxId, 0)
-    time.sleep(1. / 240.)
-PosEnd, OrnEnd = p.getBasePositionAndOrientation(boxId)
-# EulerEnd = p.getEulerFromQuaternion(OrnEnd)
-velocity = (PosEnd[0] - PosStart[0]) / (2400 / 240)
-print(velocity)
+    for i in range(initial_steps):
+        p.stepSimulation()
+        time.sleep(1. / 240.)
+    PosStart, OrnStart = p.getBasePositionAndOrientation(boxId)
+    # EulerStart = p.getEulerFromQuaternion(OrnStart)
 
+    for i in range(sim_steps):
+        p.stepSimulation()
 
+        T_pos[0] = gaits[0].GetPos(i / 240, w, parameter[1])
+        T_pos[1] = gaits[3].GetPos(i / 240, w, parameter[1])
+        T_pos[2] = gaits[2].GetPos(i / 240, w, parameter[4])
+        T_pos[3] = gaits[1].GetPos(i / 240, w, parameter[4])
+        for a in range(4):
+            if T_pos[a] < (T_test[a] - 3):
+                counter[a] += 1
+            T_test[a] = T_pos[a]
 
+        T_pos[0] = gaits[0].GetPos(i / 240, w, parameter[1]) + TWO_PI * counter[0]
+        T_pos[1] = -gaits[3].GetPos(i / 240, w, parameter[1]) - TWO_PI * counter[1]
+        T_pos[2] = -gaits[2].GetPos(i / 240, w, parameter[4]) - TWO_PI * counter[2]
+        T_pos[3] = gaits[1].GetPos(i / 240, w, parameter[4]) + TWO_PI * counter[3]
 
+        p.setJointMotorControlArray(boxId, [0, 1, 2, 3], controlMode=mode,
+                                    targetPositions=[T_pos[0], T_pos[1], T_pos[2], T_pos[3]],
+                                    forces=maxforce)
+        if (((i + 1) % 2400 == 0) and i > 2400):
+            PosTest, OrnTest = p.getBasePositionAndOrientation(boxId)
+            velocity[num] = np.sqrt(pow(PosStart[0] - PosTest[0], 2) + pow(PosStart[1] - PosTest[1], 2)) / 10
+            PosStart = PosTest
+            num += 1
+        time.sleep(1. / 240.)
+    #PosEnd, OrnEnd = p.getBasePositionAndOrientation(boxId)
+
+    for i in range(5):
+        print(velocity[i])
+    result.extend([(leg_angle, v) for v in velocity])
+result = np.asarray(result)
+# print(result)
+
+df = pd.DataFrame(result, columns=["leg_angle [deg]", "velocity [m/s]"])
+df.to_csv("vel_alternate_gait.csv", index=False)
 
