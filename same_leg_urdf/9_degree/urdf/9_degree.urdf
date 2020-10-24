@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="9_degree">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-4.8572E-17 2.3225E-08 -5.2042E-18"
+        rpy="0 0 0" />
+      <mass
+        value="2.942" />
+      <inertia
+        ixx="0.0101983"
+        ixy="-6.5182E-19"
+        ixz="-1.5206E-10"
+        iyy="0.0407337"
+        iyz="2.3311E-18"
+        izz="0.0485410" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_front_link">
+    <inertial>
+      <origin
+        xyz="-2.5506E-08 0.061763 -0.026677"
+        rpy="0 0 0" />
+      <mass
+        value="0.092" />
+      <inertia
+        ixx="0.0002604"
+        ixy="4.2892E-10"
+        ixz="1.0058E-09"
+        iyy="0.0000506"
+        iyz="-1.01E-05"
+        izz="0.0002595" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/left_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/left_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_leg"
+    type="continuous">
+    <origin
+      xyz="0.14611 0.10173 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_front_link" />
+    <axis
+      xyz="0 0.15643 -0.98769" />
+    <limit
+      effort="5"
+      velocity="487" />
+  </joint>
+  <link
+    name="right_front_link">
+    <inertial>
+      <origin
+        xyz="2.5506E-08 0.061763 0.026677"
+        rpy="0 0 0" />
+      <mass
+        value="0.092" />
+      <inertia
+        ixx="0.0002604"
+        ixy="-4.2892E-10"
+        ixz="1.0058E-09"
+        iyy="0.00021219"
+        iyz="1.01E-05"
+        izz="0.0002595" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/right_front_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/right_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_leg"
+    type="continuous">
+    <origin
+      xyz="0.14611 -0.10173 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_front_link" />
+    <axis
+      xyz="0 0.15643 0.98769" />
+    <limit
+      effort="5"
+      velocity="487" />
+  </joint>
+  <link
+    name="right_back_link">
+    <inertial>
+      <origin
+        xyz="4.359E-09 0.05683 0.03601"
+        rpy="0 0 0" />
+      <mass
+        value="0.092" />
+      <inertia
+        ixx="0.0002604"
+        ixy="-5.3626E-10"
+        ixz="5.9018E-10"
+        iyy="0.0000526"
+        iyz="-2.27E-05"
+        izz="0.0002575" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/right_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/right_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_back_leg"
+    type="continuous">
+    <origin
+      xyz="-0.14611 -0.10173 0"
+      rpy="1.7279 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_back_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="5"
+      velocity="487" />
+  </joint>
+  <link
+    name="left_back_link">
+    <inertial>
+      <origin
+        xyz="-4.359E-09 0.050497 -0.044457"
+        rpy="0 0 0" />
+      <mass
+        value="0.092" />
+      <inertia
+        ixx="0.0002604"
+        ixy="6.2198E-10"
+        ixz="4.9903E-10"
+        iyy="0.0000646"
+        iyz="0.0000532"
+        izz="0.0002455" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/left_back_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://9_degree/meshes/left_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_back_leg"
+    type="continuous">
+    <origin
+      xyz="-0.14611 0.10173 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_back_link" />
+    <axis
+      xyz="0 -0.15643 -0.98769" />
+    <limit
+      effort="5"
+      velocity="487" />
+  </joint>
+</robot>
