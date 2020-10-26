@@ -8,17 +8,17 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="4.8572E-17 4.0369E-08 -4.2712E-09"
+        xyz="0 4.0369E-08 -4.2712E-09"
         rpy="0 0 0" />
       <mass
         value="2.942" />
       <inertia
-        ixx="0.0520581"
-        ixy="2.5146E-19"
+        ixx="0.0098730"
+        ixy="-7.5263E-11"
         ixz="-1.5413E-10"
-        iyy="0.0098730"
-        iyz="5.4816E-18"
-        izz="0.0445906" />
+        iyy="0.0445906"
+        iyz="7.6596E-20"
+        izz="0.05202581" />
     </inertial>
     <visual>
       <origin
@@ -48,17 +48,17 @@
     name="left_front_link">
     <inertial>
       <origin
-        xyz="-1.0036E-07 0.065179 -0.016685"
+        xyz="-1.0036E-07 0.056833 -0.03601"
         rpy="0 0 0" />
       <mass
         value="0.092" />
       <inertia
         ixx="0.0002604"
-        ixy="4.6361E-10"
-        ixz="9.2166E-10"
-        iyy="0.0000588"
-        iyz="-0.0000419"
-        izz="0.0002513" />
+        ixy="7.2573E-10"
+        ixz="7.3329E-10"
+        iyy="0.0000526"
+        iyz="2.27E-05"
+        izz="0.0002575" />
     </inertial>
     <visual>
       <origin
@@ -89,13 +89,13 @@
     type="continuous">
     <origin
       xyz="0.16183 0.097959 0"
-      rpy="1.5708 1.5708 0" />
+      rpy="1.885 1.5708 0" />
     <parent
       link="base_link" />
     <child
       link="left_front_link" />
     <axis
-      xyz="0 0.30902 -0.95106" />
+      xyz="0 0 -1" />
     <limit
       effort="5"
       velocity="487" />
@@ -104,17 +104,17 @@
     name="right_front_link">
     <inertial>
       <origin
-        xyz="1.0036E-07 0.065179 0.016685"
+        xyz="1.0036E-07 0.056833 0.03601"
         rpy="0 0 0" />
       <mass
         value="0.092" />
       <inertia
         ixx="0.0002604"
-        ixy="-4.6361E-10"
-        ixz="9.2166E-10"
-        iyy="0.0000588"
-        iyz="0.0000419"
-        izz="0.0002513" />
+        ixy="-7.2573E-10"
+        ixz="7.3329E-10"
+        iyy="0.0000526"
+        iyz="-2.27E-05"
+        izz="0.0002575" />
     </inertial>
     <visual>
       <origin
@@ -145,13 +145,13 @@
     type="continuous">
     <origin
       xyz="0.16183 -0.097959 0"
-      rpy="1.5708 1.5708 0" />
+      rpy="1.2566 1.5708 0" />
     <parent
       link="base_link" />
     <child
       link="right_front_link" />
     <axis
-      xyz="0 0.30902 0.95106" />
+      xyz="0 0 1" />
     <limit
       effort="5"
       velocity="487" />
@@ -201,7 +201,7 @@
     type="continuous">
     <origin
       xyz="-0.16183 -0.097959 0"
-      rpy="0.31416 1.5708 -1.5708" />
+      rpy="1.885 1.5708 0" />
     <parent
       link="base_link" />
     <child
@@ -216,17 +216,17 @@
     name="left_back_link">
     <inertial>
       <origin
-        xyz="-7.08E-08 0.042924 -0.05181"
+        xyz="-7.08E-08 0.056834 -0.03601"
         rpy="0 0 0" />
       <mass
         value="0.092" />
       <inertia
         ixx="0.0002604"
-        ixy="5.8337E-10"
-        ixz="6.424E-11"
-        iyy="0.0000855"
-        iyz="0.0000786"
-        izz="0.0002246" />
+        ixy="5.3496E-10"
+        ixz="2.4137E-10"
+        iyy="0.0000526"
+        iyz="2.27E-05"
+        izz="0.0002575" />
     </inertial>
     <visual>
       <origin
@@ -257,13 +257,13 @@
     type="continuous">
     <origin
       xyz="-0.16183 0.097959 0"
-      rpy="1.5708 1.5708 0" />
+      rpy="1.2566 1.5708 0" />
     <parent
       link="base_link" />
     <child
       link="left_back_link" />
     <axis
-      xyz="0 -0.30902 -0.95106" />
+      xyz="0 0 -1" />
     <limit
       effort="5"
       velocity="487" />
