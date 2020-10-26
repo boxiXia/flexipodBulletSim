@@ -21,7 +21,7 @@ result = []
 initial_steps = 480
 
 dt = 1/240
-sample_dt = 10. # interval between each measurement in seconds
+sample_dt = 30. # interval between each measurement in seconds
 
 sim_steps = int(sample_dt/dt*10)
 
@@ -68,7 +68,7 @@ for leg_angle in leg_angle_arr:
         p.setJointMotorControlArray(boxId, [0, 1, 2, 3], controlMode=mode,
                                     targetPositions=[T_pos[0], T_pos[1], T_pos[2], T_pos[3]], forces=maxforce)
         # time.sleep(1. / 480.)
-        if i == sample_step-1: # start calculate after 30 seconds
+        if i == sample_step-1: # start calculate after sample_step
             PosStart, OrnStart = p.getBasePositionAndOrientation(boxId)
             EulerStart = p.getEulerFromQuaternion(OrnStart)
             EulerStart_tmp = EulerStart[2]
@@ -98,5 +98,5 @@ for leg_angle in leg_angle_arr:
         print(velocity[i])
     result.extend([(leg_angle, v) for v in velocity])
 
-df = pd.DataFrame(result, columns=["leg_angle [deg]", "velocity [rads/s]"])
+df = pd.DataFrame(result, columns=["Leg angle [deg]", "Angular velocity [rad/s]"])
 df.to_csv("vel_rotate.csv", index=False)

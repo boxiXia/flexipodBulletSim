@@ -300,5 +300,5 @@ for leg_angle in leg_angle_arr:
 result = np.asarray(result)
 # print(result)
 
-df = pd.DataFrame(result, columns=["leg_angle [deg]", "velocity [m/s]"])
+df = pd.DataFrame(result, columns=["Leg angle [deg]", "Velocity [m/s]"])
 df.to_csv("vel_alternate.csv", index=False)
