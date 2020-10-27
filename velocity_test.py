@@ -178,11 +178,13 @@ cubeStartOrientation = p.getQuaternionFromEuler([0, 0, 0])
 leg_angle_arr = np.arange(0, 31, 2)
 result = []
 initial_steps = 480
-sim_steps = 14400
 
 dt = 1/240
 sample_dt = 1 # interval between each measurement in seconds
-sample_step = sample_dt/dt # in steps
+sample_step = int(sample_dt/dt) # in steps
+
+sim_steps = sample_step*10
+
 num_samples = int(sim_steps/sample_step-1)
 
 mode = p.POSITION_CONTROL
@@ -204,7 +206,7 @@ for leg_angle in leg_angle_arr:
     planeId = p.loadURDF("plane.urdf")
     # p.changeDynamics(planeId, -1, contactStiffness=1500, contactDamping=30)
     boxId = p.loadURDF(
-        f"same_leg_urdf/{leg_angle}_degree.urdf", cubeStartPos, cubeStartOrientation)
+        f"final_urdf/{leg_angle}_degree.urdf", cubeStartPos, cubeStartOrientation)
     # boxId = p.loadURDF("same_leg_urdf/24_degree.urdf", cubeStartPos, cubeStartOrientation)
     # p.changeDynamics(boxId, 1, contactStiffness = 1000, contactDamping = 1000)
 
