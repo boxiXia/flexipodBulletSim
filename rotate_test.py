@@ -93,4 +93,4 @@ for leg_angle in leg_angle_arr:
     result.extend([(leg_angle, v) for v in velocity])
 
 df = pd.DataFrame(result, columns=["Leg angle [deg]", "Angular velocity [rad/s]"])
-df.to_csv("vel_rotate.csv", index=False)
+df.to_csv("vel_rotate_1speed.csv", index=False)

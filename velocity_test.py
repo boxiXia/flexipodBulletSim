@@ -180,7 +180,7 @@ result = []
 initial_steps = 480
 
 dt = 1/240
-sample_dt = 1 # interval between each measurement in seconds
+sample_dt = 10 # interval between each measurement in seconds
 sample_step = int(sample_dt/dt) # in steps
 
 sim_steps = sample_step*10
@@ -188,25 +188,24 @@ sim_steps = sample_step*10
 num_samples = int(sim_steps/sample_step-1)
 
 mode = p.POSITION_CONTROL
-maxforce = [5, 5, 5, 5]
+maxforce = [3, 3, 3, 3]
 
 w = 2 * PI
 parameter = [0 for _ in range(7)]
-parameter[0] = 0.5  # 0.51
-parameter[1] = 0.8  # 0.74
-parameter[2] = 17.5  # 7
-parameter[3] = 162.5  # 113
-parameter[4] = 0.8  # 0.67
-parameter[5] = 17.5  # 95
-parameter[6] = 162.5  # 134
+parameter[0] = 0.2
+parameter[1] = 0.6 
+parameter[2] = 25
+parameter[3] = 155
+parameter[4] = 0.6 
+parameter[5] = 25
+parameter[6] = 155 
 
 for leg_angle in leg_angle_arr:
     p.resetSimulation()
     p.setGravity(0, 0, -10)
     planeId = p.loadURDF("plane.urdf")
     # p.changeDynamics(planeId, -1, contactStiffness=1500, contactDamping=30)
-    boxId = p.loadURDF(
-        f"final_urdf/{leg_angle}_degree.urdf", cubeStartPos, cubeStartOrientation)
+    boxId = p.loadURDF(f"final_urdf/{leg_angle}_degree.urdf", cubeStartPos, cubeStartOrientation)
     # boxId = p.loadURDF("same_leg_urdf/24_degree.urdf", cubeStartPos, cubeStartOrientation)
     # p.changeDynamics(boxId, 1, contactStiffness = 1000, contactDamping = 1000)
 
@@ -215,24 +214,24 @@ for leg_angle in leg_angle_arr:
     back_stance_mid = ((parameter[5] + parameter[6]) / 2) / 180 * PI
     back_contact_angle = (parameter[6] - parameter[5]) / 180 * PI
 
-    # gaits = [  # bounding gait
-    #     WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle),  # front left
-    #     WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back left
-    #     WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back right
-    #     WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
+    gaits = [  # bounding gait
+        WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle),  # front left
+        WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back left
+        WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back right
+        WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
     # gaits = [  # trotting gait #2 alternate gait
     #     WalkingTrot(0, p_stance_mid=front_stance_mid, contact_angle=front_contact_angle),  # front left
     #     WalkingTrot(0, p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back left
     #     WalkingTrot(parameter[0], p_stance_mid=back_stance_mid, contact_angle=back_contact_angle),  # back right
     #     WalkingTrot(parameter[0], p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
-    gaits = [  # rotate
-        WalkingTrot(0, p_stance_mid=front_stance_mid,
-                    contact_angle=front_contact_angle),  # front left
-        WalkingTrot(0, p_stance_mid=back_stance_mid,
-                    contact_angle=back_contact_angle),  # back left
-        WalkingTrot(parameter[0], p_stance_mid=back_stance_mid,
-                    contact_angle=back_contact_angle),  # back right
-        WalkingTrot(parameter[0], p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
+    # gaits = [  # rotate
+    #     WalkingTrot(0, p_stance_mid=front_stance_mid,
+    #                 contact_angle=front_contact_angle),  # front left
+    #     WalkingTrot(0, p_stance_mid=back_stance_mid,
+    #                 contact_angle=back_contact_angle),  # back left
+    #     WalkingTrot(parameter[0], p_stance_mid=back_stance_mid,
+    #                 contact_angle=back_contact_angle),  # back right
+    #     WalkingTrot(parameter[0], p_stance_mid=front_stance_mid, contact_angle=front_contact_angle)]  # front right
     # jointPosition = np.zeros(1440)
     # jointVelocity = np.zeros(1440)
     # appliedJointMotorTorque = np.zeros(1440)
@@ -303,4 +302,4 @@ result = np.asarray(result)
 # print(result)
 
 df = pd.DataFrame(result, columns=["Leg angle [deg]", "Velocity [m/s]"])
-df.to_csv("vel_alternate.csv", index=False)
+df.to_csv("vel_bounding_test.csv", index=False)

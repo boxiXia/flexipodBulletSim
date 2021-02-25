@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bdfd56c2-9899-45f6-8425-92e99c514171" name="Default Changelist" comment="" />
+    <list default="true" id="bdfd56c2-9899-45f6-8425-92e99c514171" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/plot.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotate_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/rotate_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/velocity_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/velocity_test.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +32,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1fc8fCl5WzNzIelpuj2pAoEYUJS" />
   <component name="PropertiesComponent">
@@ -187,6 +194,7 @@
       <workItem from="1601929791982" duration="841000" />
       <workItem from="1601999636222" duration="5046000" />
       <workItem from="1602116777277" duration="82858000" />
+      <workItem from="1605146009937" duration="7000" />
     </task>
     <servers />
   </component>
