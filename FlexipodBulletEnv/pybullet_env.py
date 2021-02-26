@@ -2,17 +2,17 @@ import pybullet as p
 import pybullet_data
 import numpy as np
 import time
-
+import os
 PI = np.pi
 
 
-class Env(object):
+class FlexipodBulletEnv(object):
 
-    def __init__(self, robot_path="test/robot.urdf", GUI_setting=0):
-        if GUI_setting == 0:
-            self.physicsClient = p.connect(p.DIRECT)
-        else:
-            self.physicsClient = p.connect(p.GUI)  # or p.DIRECT for non-graphical version
+    def __init__(self, gui=True):
+        robot_path = os.path.join(os.path.dirname(__file__),"urdf/robot.urdf")
+        
+        self.physicsClient = p.connect(p.GUI if gui else p.DIRECT)
+
         p.setAdditionalSearchPath(pybullet_data.getDataPath())  # optionally
         p.setGravity(0, 0, -10)
         p.loadURDF("plane.urdf")
@@ -38,7 +38,7 @@ class Env(object):
         # self.action_delta = PI / 240
         # self.action_range = [-self.action_bound + self.action_delta * i for i in range(action_size)]
 
-    def reset_env(self):
+    def reset(self):
         p.restoreState(self.initial_state)
         self.constraint_id = p.createConstraint(self.robot_id, -1, -1, -1, p.JOINT_PRISMATIC, jointAxis=[0, 0, 1],
                                                 parentFramePosition=[0, 0, 0],

@@ -1,0 +1,9 @@
+build/
+
+.vs/*
+!.vs/launch.vs.json
+.ipynb_checkpoints
+.OldVersions
+*.pyc
+
+*.lck
