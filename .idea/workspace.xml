@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bdfd56c2-9899-45f6-8425-92e99c514171" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlexipodBulletEnv/pybullet_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlexipodBulletEnv/pybullet_env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_FexipodBulletEnv.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test_FexipodBulletEnv.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,6 +196,7 @@
       <workItem from="1602116777277" duration="82858000" />
       <workItem from="1605146009937" duration="7000" />
       <workItem from="1614356262037" duration="65000" />
+      <workItem from="1614376085949" duration="4797000" />
     </task>
     <servers />
   </component>
@@ -205,7 +208,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -217,7 +222,7 @@
     <SUITE FILE_PATH="coverage/pybullet_simulation$soft_test.coverage" NAME="soft_test Coverage Results" MODIFIED="1602207477542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pybullet_simulation$gait_test.coverage" NAME="gait_test Coverage Results" MODIFIED="1602445168401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pybullet_simulation$ttt.coverage" NAME="ttt Coverage Results" MODIFIED="1602343500873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flexipodBulletSim$test_env.coverage" NAME="test_env Coverage Results" MODIFIED="1614356313266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flexipodBulletSim$test_env.coverage" NAME="test_env Coverage Results" MODIFIED="1614376618758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pybullet_simulation$gait_test3.coverage" NAME="gait_test3 Coverage Results" MODIFIED="1602451639259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pybullet_simulation$test.coverage" NAME="test Coverage Results" MODIFIED="1602445934610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pybullet_simulation$simulation_test.coverage" NAME="simulation_test Coverage Results" MODIFIED="1602446327753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

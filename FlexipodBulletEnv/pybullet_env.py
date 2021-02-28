@@ -10,8 +10,8 @@ class FlexipodBulletEnv(object):
 
     def __init__(self, gui=True):
         robot_path = os.path.join(os.path.dirname(__file__),"urdf/robot.urdf")
-        
-        self.physicsClient = p.connect(p.GUI if gui else p.DIRECT)
+        if not p.isConnected():
+            self.physicsClient = p.connect(p.GUI if gui else p.DIRECT)
 
         p.setAdditionalSearchPath(pybullet_data.getDataPath())  # optionally
         p.setGravity(0, 0, -10)
@@ -66,7 +66,7 @@ class FlexipodBulletEnv(object):
         self.step_action(action)
         obs, cheat = self.step_observation()
         reward = self.step_reward(obs, cheat)
-        return obs, reward, cheat
+        return obs, reward, cheat, None
 
     def step_action(self, action):
         # for i in range(3):
@@ -136,3 +136,5 @@ class FlexipodBulletEnv(object):
                      + pos_test[2]
 
         return reward
+
+
