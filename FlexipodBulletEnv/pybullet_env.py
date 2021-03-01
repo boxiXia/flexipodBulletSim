@@ -62,8 +62,9 @@ class FlexipodBulletEnv(object):
             # time.sleep(1. / 240.)
         p.removeConstraint(self.constraint_id)
 
-    def step(self, action):
-        self.step_action(action)
+    def step(self, action=None):
+        if action is not None:
+            self.step_action(action)
         obs, cheat = self.step_observation()
         reward = self.step_reward(obs, cheat)
         return obs, reward, cheat, None
