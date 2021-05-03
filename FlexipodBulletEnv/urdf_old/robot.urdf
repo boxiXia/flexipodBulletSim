@@ -1,0 +1,953 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot name="robot">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="1.0196898000000187"/>
+      <inertia ixx="0.008485755511900806" ixy="9.44441736189342e-21" ixz="-1.322218430663828e-16" iyy="0.010755228463150602" iyz="-3.667695375376558e-20" izz="0.004121125018749809"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/body.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/body.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_hip_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.008725226571447621"/>
+      <inertia ixx="1.5000064084470432e-05" ixy="1.3648480107124957e-23" ixz="-4.192813088908787e-23" iyy="7.301834886894701e-06" iyz="1.777794129836735e-22" izz="7.907634635290474e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_hip_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_hip_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_hip_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_hip_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_hip_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_hip">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.022572853506616163"/>
+      <inertia ixx="1.4628043950933668e-05" ixy="-4.721900627891241e-06" ixz="-3.5337712296101637e-07" iyy="2.6099692210438463e-05" iyz="6.102303092002736e-07" izz="2.523335634963714e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_hip.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_hip.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_thigh_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_thigh_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_thigh_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_thigh">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.036696481109002595"/>
+      <inertia ixx="4.622587744859162e-05" ixy="1.4725018988049434e-09" ixz="6.876798986521272e-10" iyy="4.7178973972743224e-05" iyz="5.075776983802486e-06" izz="1.9185661977166144e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_thigh.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_thigh.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_shank_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_shank_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_shank_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_shank_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.056098890610631585"/>
+      <inertia ixx="4.3107530323764116e-05" ixy="-1.0206178393298328e-08" ixz="-1.1593919601266583e-05" iyy="4.374223625484103e-05" iyz="-6.692296060306e-10" izz="2.7647051296376768e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_shank_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_shank_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lf_shank">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.043853773038341336"/>
+      <inertia ixx="4.858260799731374e-05" ixy="6.748426215436112e-10" ixz="-1.3480763788086625e-08" iyy="4.652833332509344e-05" iyz="-1.0037779117800898e-09" izz="1.937056536520672e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_shank.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lf_shank.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_hip_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.008725226571447621"/>
+      <inertia ixx="1.500006408447043e-05" ixy="3.639594695233322e-23" ixz="3.5716555942556335e-23" iyy="7.301834886894701e-06" iyz="-1.7777941298367348e-22" izz="7.907634635290474e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_hip_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_hip_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_hip_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_hip_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_hip_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_hip">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.022568602179679133"/>
+      <inertia ixx="1.4622880604016852e-05" ixy="4.722121537147312e-06" ixz="-3.5347249140432666e-07" iyy="2.6093336600158844e-05" iyz="-6.070964090393777e-07" izz="2.5231089455130677e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_hip.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_hip.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_thigh_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_thigh_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_thigh_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_thigh">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.036696481476572916"/>
+      <inertia ixx="4.622588186636237e-05" ixy="-1.4839436353841302e-09" ixz="7.897681135492148e-10" iyy="4.717898180853976e-05" iyz="-5.075778166769035e-06" izz="1.9185661723241435e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_thigh.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_thigh.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_shank_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_shank_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_shank_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_shank_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.056098890610631585"/>
+      <inertia ixx="4.3107530323764116e-05" ixy="-1.0206178393298328e-08" ixz="-1.1593919601266583e-05" iyy="4.374223625484103e-05" iyz="-6.692296060306e-10" izz="2.7647051296376768e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_shank_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_shank_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rf_shank">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.043853773038341336"/>
+      <inertia ixx="4.858260799731374e-05" ixy="6.748426215436112e-10" ixz="-1.3480763788086625e-08" iyy="4.652833332509344e-05" iyz="-1.0037779117800898e-09" izz="1.937056536520672e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_shank.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rf_shank.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_hip_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.008725226571447621"/>
+      <inertia ixx="1.500006408447043e-05" ixy="3.639594695233322e-23" ixz="3.5716555942556335e-23" iyy="7.301834886894701e-06" iyz="-1.7777941298367348e-22" izz="7.907634635290474e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_hip_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_hip_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_hip_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_hip_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_hip_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_hip">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.032732069822455925"/>
+      <inertia ixx="3.831935459007559e-05" ixy="-1.4839525333697381e-09" ixz="7.485451598135901e-10" iyy="3.938988752910462e-05" iyz="-4.753709156741053e-06" izz="1.7416351774227207e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_hip.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_hip.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_thigh_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_thigh_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_thigh_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_thigh">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.036696481476572916"/>
+      <inertia ixx="4.622588186636237e-05" ixy="-1.4839436353841302e-09" ixz="7.897681135492148e-10" iyy="4.717898180853976e-05" iyz="-5.075778166769035e-06" izz="1.9185661723241435e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_thigh.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_thigh.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_shank_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_shank_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_shank_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_shank_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.056098890610631585"/>
+      <inertia ixx="4.3107530323764116e-05" ixy="-1.0206178393298328e-08" ixz="-1.1593919601266583e-05" iyy="4.374223625484103e-05" iyz="-6.692296060306e-10" izz="2.7647051296376768e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_shank_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_shank_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lb_shank">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.043853773038341336"/>
+      <inertia ixx="4.858260799731374e-05" ixy="6.748426215436112e-10" ixz="-1.3480763788086625e-08" iyy="4.652833332509344e-05" iyz="-1.0037779117800898e-09" izz="1.937056536520672e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_shank.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/lb_shank.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_hip_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.008725226571447621"/>
+      <inertia ixx="1.5000064084470432e-05" ixy="1.3648480107124957e-23" ixz="-4.192813088908787e-23" iyy="7.301834886894701e-06" iyz="1.777794129836735e-22" izz="7.907634635290474e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_hip_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_hip_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_hip_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_hip_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_hip_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_hip">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.032732069454885604"/>
+      <inertia ixx="3.8319351357792006e-05" ixy="1.4653883727949742e-09" ixz="6.17237220616505e-10" iyy="3.938988031814184e-05" iyz="4.75370553839502e-06" izz="1.7416352582622428e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_hip.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_hip.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_thigh_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_thigh_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_thigh_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_thigh">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.036696481109002595"/>
+      <inertia ixx="4.622587744859162e-05" ixy="1.4725018988049434e-09" ixz="6.876798986521272e-10" iyy="4.7178973972743224e-05" iyz="5.075776983802486e-06" izz="1.9185661977166144e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_thigh.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_thigh.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_shank_motor">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.47999996968676256"/>
+      <inertia ixx="0.00033537419501531124" ixy="1.8058235803533032e-08" ixz="1.946249097096912e-21" iyy="0.00023196277740878066" iyz="-5.234141687550622e-21" izz="0.00023212625467569964"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_shank_motor.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_shank_motor.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_shank_board">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.056098890610631585"/>
+      <inertia ixx="4.3107530323764116e-05" ixy="-1.0206178393298328e-08" ixz="-1.1593919601266583e-05" iyy="4.374223625484103e-05" iyz="-6.692296060306e-10" izz="2.7647051296376768e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_shank_board.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_shank_board.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="rb_shank">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="0.043853773038341336"/>
+      <inertia ixx="4.858260799731374e-05" ixy="6.748426215436112e-10" ixz="-1.3480763788086625e-08" iyy="4.652833332509344e-05" iyz="-1.0037779117800898e-09" izz="1.937056536520672e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_shank.obj"/>
+      </geometry>
+      <material name="#ffffffff">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="mesh/rb_shank.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="body,lf_hip_board" type="fixed">
+    <origin xyz="0.025 0.0 0.125" rpy="-1.5707963267948963 0.0 0.0"/>
+    <parent link="body"/>
+    <child link="lf_hip_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="body,rf_hip_board" type="fixed">
+    <origin xyz="-0.025 0.0 0.125" rpy="1.5707963267948963 2.220446049250313e-16 3.141592653589793"/>
+    <parent link="body"/>
+    <child link="rf_hip_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="body,lb_hip_board" type="fixed">
+    <origin xyz="0.025 0.0 -0.125" rpy="-1.5707963267948963 0.0 0.0"/>
+    <parent link="body"/>
+    <child link="lb_hip_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="body,rb_hip_board" type="fixed">
+    <origin xyz="-0.025 0.0 -0.125" rpy="1.5707963267948963 2.220446049250313e-16 3.141592653589793"/>
+    <parent link="body"/>
+    <child link="rb_hip_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_hip_board,lf_hip_motor" type="fixed">
+    <origin xyz="0.0115 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lf_hip_board"/>
+    <child link="lf_hip_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_hip_motor,lf_hip" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lf_hip_motor"/>
+    <child link="lf_hip"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_hip,lf_thigh_motor" type="fixed">
+    <origin xyz="0.07100000000000001 0.0145 0.0" rpy="0.0 0.0 -1.5707963267948963"/>
+    <parent link="lf_hip"/>
+    <child link="lf_thigh_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_thigh_motor,lf_thigh" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lf_thigh_motor"/>
+    <child link="lf_thigh"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_thigh,lf_shank_motor" type="fixed">
+    <origin xyz="0.025 0.0145 -0.0835" rpy="0.0 0.0 -1.5707963267948963"/>
+    <parent link="lf_thigh"/>
+    <child link="lf_shank_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_shank_motor,lf_shank_board" type="revolute">
+    <origin xyz="0.0145 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lf_shank_motor"/>
+    <child link="lf_shank_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lf_shank_board,lf_shank" type="fixed">
+    <origin xyz="0.0 0.0 -0.0275" rpy="0.0 0.0 3.141592653589793"/>
+    <parent link="lf_shank_board"/>
+    <child link="lf_shank"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_hip_board,rf_hip_motor" type="fixed">
+    <origin xyz="0.0115 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rf_hip_board"/>
+    <child link="rf_hip_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_hip_motor,rf_hip" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rf_hip_motor"/>
+    <child link="rf_hip"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_hip,rf_thigh_motor" type="fixed">
+    <origin xyz="0.07100000000000001 -0.0145 0.0" rpy="0.0 0.0 1.5707963267948963"/>
+    <parent link="rf_hip"/>
+    <child link="rf_thigh_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_thigh_motor,rf_thigh" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rf_thigh_motor"/>
+    <child link="rf_thigh"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_thigh,rf_shank_motor" type="fixed">
+    <origin xyz="0.025 -0.0145 -0.0835" rpy="0.0 0.0 1.5707963267948963"/>
+    <parent link="rf_thigh"/>
+    <child link="rf_shank_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_shank_motor,rf_shank_board" type="revolute">
+    <origin xyz="0.0145 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rf_shank_motor"/>
+    <child link="rf_shank_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rf_shank_board,rf_shank" type="fixed">
+    <origin xyz="0.0 0.0 -0.0275" rpy="0.0 0.0 3.141592653589793"/>
+    <parent link="rf_shank_board"/>
+    <child link="rf_shank"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_hip_board,lb_hip_motor" type="fixed">
+    <origin xyz="0.0115 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lb_hip_board"/>
+    <child link="lb_hip_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_hip_motor,lb_hip" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lb_hip_motor"/>
+    <child link="lb_hip"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_hip,lb_thigh_motor" type="fixed">
+    <origin xyz="0.025 -0.0145 -0.075" rpy="0.0 0.0 1.5707963267948963"/>
+    <parent link="lb_hip"/>
+    <child link="lb_thigh_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_thigh_motor,lb_thigh" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lb_thigh_motor"/>
+    <child link="lb_thigh"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_thigh,lb_shank_motor" type="fixed">
+    <origin xyz="0.025 -0.0145 -0.0835" rpy="0.0 0.0 1.5707963267948963"/>
+    <parent link="lb_thigh"/>
+    <child link="lb_shank_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_shank_motor,lb_shank_board" type="revolute">
+    <origin xyz="0.0145 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="lb_shank_motor"/>
+    <child link="lb_shank_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="lb_shank_board,lb_shank" type="fixed">
+    <origin xyz="0.0 0.0 -0.0275" rpy="0.0 0.0 3.141592653589793"/>
+    <parent link="lb_shank_board"/>
+    <child link="lb_shank"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_hip_board,rb_hip_motor" type="fixed">
+    <origin xyz="0.0115 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rb_hip_board"/>
+    <child link="rb_hip_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_hip_motor,rb_hip" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rb_hip_motor"/>
+    <child link="rb_hip"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_hip,rb_thigh_motor" type="fixed">
+    <origin xyz="0.025 0.0145 -0.075" rpy="0.0 0.0 -1.5707963267948963"/>
+    <parent link="rb_hip"/>
+    <child link="rb_thigh_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_thigh_motor,rb_thigh" type="revolute">
+    <origin xyz="0.032 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rb_thigh_motor"/>
+    <child link="rb_thigh"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_thigh,rb_shank_motor" type="fixed">
+    <origin xyz="0.025 0.0145 -0.0835" rpy="0.0 0.0 -1.5707963267948963"/>
+    <parent link="rb_thigh"/>
+    <child link="rb_shank_motor"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_shank_motor,rb_shank_board" type="revolute">
+    <origin xyz="0.0145 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rb_shank_motor"/>
+    <child link="rb_shank_board"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+  <joint name="rb_shank_board,rb_shank" type="fixed">
+    <origin xyz="0.0 0.0 -0.0275" rpy="0.0 0.0 3.141592653589793"/>
+    <parent link="rb_shank_board"/>
+    <child link="rb_shank"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="11" velocity="51"/>
+  </joint>
+</robot>
