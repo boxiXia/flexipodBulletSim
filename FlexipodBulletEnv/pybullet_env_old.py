@@ -121,7 +121,6 @@ class FlexipodBulletEnv(object):
     def step_observation(self):
         """
         getting observation after taking the actions, and determine if the robot cheat
-        you can change the cheating condition into what you want
         :return:
         """
         obs = np.zeros(15)
@@ -160,7 +159,6 @@ class FlexipodBulletEnv(object):
     def step_reward(self, obs, cheat):
         """
         computing the reward
-        you can change the reward into what you want
         :param obs:
         :param cheat:
         :return:
