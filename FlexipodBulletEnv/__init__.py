@@ -1,1 +1,2 @@
 from .pybullet_env import FlexipodBulletEnv
+from .pybullet_camera_env import FlexipodBulletCameraEnv
